@@ -24,7 +24,7 @@ export default class StatisticsDisplay implements WeatherDataObserver{
     console.log('Avg/max/min temperature = %f/%i/%i', this._tempSum / this._numReadings, this._maxTemp, this._minTemp);
   }
 
-  update(listener: WeatherData): void {
-    this.displayStatistics(listener);
+  update(weatherData: WeatherData): void {
+    this.displayStatistics(weatherData);
   }
 }

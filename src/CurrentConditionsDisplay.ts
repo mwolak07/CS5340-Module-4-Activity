@@ -7,7 +7,12 @@ export default class CurrentConditionsDisplay implements WeatherDataObserver {
     console.log('Current conditions: %fF degrees and %f% humidity', weatherData.temperature, weatherData.humidity);
   }
 
-  update(listener: WeatherData): void {
-    CurrentConditionsDisplay.displayCurrentConditions(listener);
+  /**
+   * Updates this display with new weather data.
+   * 
+   * @param weatherData: The new weather data to be displayed.
+   */
+  update(weatherData: WeatherData): void {
+    CurrentConditionsDisplay.displayCurrentConditions(weatherData);
   }
 }
