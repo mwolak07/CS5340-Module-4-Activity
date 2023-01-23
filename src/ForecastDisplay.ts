@@ -1,6 +1,11 @@
 import WeatherData from './WeatherData';
+import WeatherDataObserver from './WeatherDataObserver'
 
-export default class ForecastDisplay {
+export default class ForecastDisplay implements WeatherDataObserver {
+  constructor(private weatherData:WeatherData) {
+    weatherData.addObserver(this);
+  }
+
   private _currentPressure = 0;
 
   private _lastPressure = 0;
@@ -20,4 +25,13 @@ export default class ForecastDisplay {
     console.log('Forecast: %s', forecast);
   }
 
+  /**
+   * Updates this forecast display
+   * 
+   * @param theWeatherData 
+   */
+
+  update(weatherData: WeatherData): void {
+    this.displayForecast(weatherData)
+  }
 }
