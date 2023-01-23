@@ -24,10 +24,6 @@ export default class WeatherData {
     return this._pressure;
   }
 
-  private _statisticsDisplay = new StatisticsDisplay(this);
-
-  private _forecastDisplay = new ForecastDisplay(this);
-
   public setMeasurements(temperature: number, humidity: number, pressure: number): void {
     this._temperature = temperature;
     this._humidity = humidity;
@@ -37,10 +33,6 @@ export default class WeatherData {
 
   private measurementsChanged() {
     this.updateObservers();
-    this._statisticsDisplay.displayStatistics(this);
-    this._forecastDisplay.displayForecast(this);
-    CurrentConditionsDisplay.displayCurrentConditions(this);
-    HeatIndexDisplay.displayHeatIndex(this);
   }
 
   /**
