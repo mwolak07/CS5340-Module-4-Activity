@@ -2,6 +2,11 @@ import WeatherData from './WeatherData';
 import WeatherDataObserver from './WeatherDataObserver'
 
 export default class ForecastDisplay implements WeatherDataObserver {
+  /**
+   * Adds this to the weather data as an observer when this is created.
+   * 
+   * @param weatherData the weather data that will observe this
+   */
   constructor(private weatherData:WeatherData) {
     weatherData.addObserver(this);
   }
@@ -28,7 +33,7 @@ export default class ForecastDisplay implements WeatherDataObserver {
   /**
    * Updates this forecast display
    * 
-   * @param theWeatherData 
+   * @param theWeatherData the weather data that updates this forecast display
    */
 
   update(weatherData: WeatherData): void {
