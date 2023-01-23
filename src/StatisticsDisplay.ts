@@ -1,6 +1,7 @@
 import WeatherData from './WeatherData';
+import WeatherDataObserver from './WeatherDataObserver';
 
-export default class StatisticsDisplay {
+export default class StatisticsDisplay implements WeatherDataObserver{
   private _maxTemp = 0;
 
   private _minTemp = 0;
@@ -21,5 +22,9 @@ export default class StatisticsDisplay {
 
     // eslint-disable-next-line
     console.log('Avg/max/min temperature = %f/%i/%i', this._tempSum / this._numReadings, this._maxTemp, this._minTemp);
+  }
+
+  update(listener: WeatherData): void {
+    this.displayStatistics(listener);
   }
 }
