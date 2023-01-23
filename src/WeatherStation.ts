@@ -6,6 +6,7 @@ import WeatherData from './WeatherData';
 
 const weatherData = new WeatherData();
 
+/** Creating new XXXDisplay observers in the order we want them displayed. */
 const currentConditionsObserver = new CurrentConditionsDisplay(weatherData);
 const statisticsObserver = new StatisticsDisplay(weatherData);
 const heatIndexObserver = new HeatIndexDisplay(weatherData);
