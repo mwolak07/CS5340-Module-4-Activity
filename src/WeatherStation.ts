@@ -7,9 +7,9 @@ import WeatherData from './WeatherData';
 const weatherData = new WeatherData();
 
 const currentConditionsObserver = new CurrentConditionsDisplay(weatherData);
-const forecastObserver = new ForecastDisplay(weatherData);
-const heatIndexObserver = new HeatIndexDisplay(weatherData);
 const statisticsObserver = new StatisticsDisplay(weatherData);
+const heatIndexObserver = new HeatIndexDisplay(weatherData);
+const forecastObserver = new ForecastDisplay(weatherData);
 
 weatherData.setMeasurements(80, 65, 30.4);
 
