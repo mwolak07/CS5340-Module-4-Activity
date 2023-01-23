@@ -6,6 +6,7 @@ import WeatherDataObserver from './WeatherDataObserver';
 
 export default class WeatherData {
   private _temperature = 0;
+  
   private _observers : WeatherDataObserver[] = [];
 
   get temperature(): number {
