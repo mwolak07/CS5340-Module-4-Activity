@@ -2,6 +2,9 @@ import WeatherData from './WeatherData';
 import WeatherDataObserver from './WeatherDataObserver';
 
 export default class CurrentConditionsDisplay implements WeatherDataObserver {
+  /** 
+   * Creates a new CurrentCondiditonsDisplay, subscribing it to the given weatherData object.
+   */
   constructor(private weatherData:WeatherData) {
     weatherData.addObserver(this);
   }
