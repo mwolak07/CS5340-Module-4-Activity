@@ -43,10 +43,20 @@ export default class WeatherData {
     this._observers.forEach(obs => obs.update(this));
   }
 
+  /**
+   * Adds the given client to this weather data
+   * 
+   * @param observer the observer to be added to this
+   */
   public addObserver(observer: WeatherDataObserver): void {
     this._observers.push(observer);
   }
 
+  /**
+   * Removes the given client from this weather data
+   * 
+   * @param observer the observer to be removed
+   */
   public remnoveObserver(observer: WeatherDataObserver): void {
     this._observers = this._observers.filter(obs => obs !== observer);
   }
