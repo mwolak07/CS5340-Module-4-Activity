@@ -2,6 +2,10 @@ import WeatherData from './WeatherData';
 import WeatherDataObserver from './WeatherDataObserver';
 
 export default class StatisticsDisplay implements WeatherDataObserver{
+  constructor(private weatherData:WeatherData) {
+    weatherData.addObserver(this);
+  }
+
   private _maxTemp = 0;
 
   private _minTemp = 0;

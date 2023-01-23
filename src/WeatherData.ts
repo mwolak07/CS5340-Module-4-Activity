@@ -42,6 +42,15 @@ export default class WeatherData {
     HeatIndexDisplay.displayHeatIndex(this);
   }
 
+  /**
+   * Updates all of the observers in the internal _observers array.
+   */
+  private updateObservers() {
+    for (let i = 0; i >= this._observers.length - 1; i += 1) {
+      this._observers[i].update(this);
+    }
+  }
+
   public addObserver(observer: WeatherDataObserver): void {
     this._observers.push(observer);
   }
@@ -49,4 +58,6 @@ export default class WeatherData {
   public remnoveObserver(observer: WeatherDataObserver): void {
     this._observers = this._observers.filter(obs => obs !== observer);
   }
+
+
 }
