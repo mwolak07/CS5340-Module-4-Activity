@@ -2,6 +2,9 @@ import WeatherData from './WeatherData';
 import WeatherDataObserver from './WeatherDataObserver';
 
 export default class HeatIndexDisplay implements WeatherDataObserver {
+  constructor(private weatherData:WeatherData) {
+    weatherData.addObserver(this);
+  }
 
   static displayHeatIndex(currentData: WeatherData): void {
     const {humidity, temperature} = currentData;
@@ -25,7 +28,11 @@ export default class HeatIndexDisplay implements WeatherDataObserver {
     console.log('Heat Index: %f', heatIndex);
   }
 
-  // Allows this 
+  /**
+   * Updates this display with new weather data.
+   * 
+   * @param weatherData: The new weather data to be displayed.
+   */
   public update(weatherData: WeatherData): void {
     HeatIndexDisplay.displayHeatIndex(weatherData);
   }
