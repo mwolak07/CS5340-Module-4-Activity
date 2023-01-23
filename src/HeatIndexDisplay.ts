@@ -2,6 +2,11 @@ import WeatherData from './WeatherData';
 import WeatherDataObserver from './WeatherDataObserver';
 
 export default class HeatIndexDisplay implements WeatherDataObserver {
+  /**
+   * Constructs a HeatIndexDisplay object and subscribes it to the given WeatherData
+   * 
+   * @param weatherData: The WeatherData object to subscribe this observer to
+   */
   constructor(private weatherData:WeatherData) {
     weatherData.addObserver(this);
   }
