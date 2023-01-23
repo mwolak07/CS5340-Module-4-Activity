@@ -36,6 +36,7 @@ export default class WeatherData {
   }
 
   private measurementsChanged() {
+    this.updateObservers();
     this._statisticsDisplay.displayStatistics(this);
     this._forecastDisplay.displayForecast(this);
     CurrentConditionsDisplay.displayCurrentConditions(this);
@@ -46,9 +47,7 @@ export default class WeatherData {
    * Updates all of the observers in the internal _observers array.
    */
   private updateObservers() {
-    for (let i = 0; i >= this._observers.length - 1; i += 1) {
-      this._observers[i].update(this);
-    }
+    this._observers.forEach(obs => obs.update(this));
   }
 
   public addObserver(observer: WeatherDataObserver): void {
